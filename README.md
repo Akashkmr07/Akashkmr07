@@ -67,14 +67,14 @@
 
 ## 📊 GitHub Command Center
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=akashkmr07&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&rank_icon=github" alt="GitHub Stats" height="180" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akashkmr07&layout=compact&langs_count=8&theme=tokyonight&hide_border=true" alt="Top Languages" height="180" />
-</div>
+<p align="center">
+  <img height="180" src="https://github-readme-stats.vercel.app/api?username=akashkmr07&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&rank_icon=github" alt="Akash's GitHub statistics"/>
+  <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=akashkmr07&layout=compact&langs_count=8&theme=tokyonight&hide_border=true" alt="Akash's top languages"/>
+</p>
 
-<div align="center" style="margin-top: 10px;">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=akashkmr07&theme=tokyo-night&hide_border=true&area=true" alt="Contribution Graph" width="100%" />
-</div>
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=akashkmr07&theme=tokyo-night&hide_border=true&area=true" alt="Akash's GitHub contribution activity"/>
+</p>
 
 <br>
 
