@@ -53,30 +53,13 @@
 
 <br>
 
-## 🏗️ Currently Building
-
-<table width="100%" style="border-collapse: collapse;">
-  <tr>
-    <td style="border: 1px solid #30363d; padding: 20px; border-radius: 6px; background-color: #0d1117;">
-      <h3 style="margin-top: 0; color: #c9d1d9;">E-commerce Book Selling Website</h3>
-      <p style="color: #8b949e; margin-bottom: 15px;">A comprehensive platform for browsing and purchasing books online, featuring secure user authentication, product catalog management, and seamless checkout flows.</p>
-      <p style="margin: 0;">
-        <img src="https://img.shields.io/badge/Status-Active_Development-3fb950?style=flat-square" alt="Status" />
-        <img src="https://img.shields.io/badge/Focus-Full_Stack_Integration-58a6ff?style=flat-square" alt="Focus" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<br>
-
 ## ⚡ Tech Ecosystem
 
 <div align="center">
   
 | 🌐 Frontend & UI | ⚙️ Backend & Data | 🛠️ Tools & Workflow | 💻 Core Languages |
 | :---: | :---: | :---: | :---: |
-| <br><img src="https://skillicons.dev/icons?i=react,js,html,css,bootstrap&perline=5" alt="Frontend"/><br>&nbsp; | <br><img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,mysql,supabase,firebase&perline=3" alt="Backend"/><br>&nbsp; | <br><img src="https://skillicons.dev/icons?i=git,github,vscode,postman,figma&perline=3" alt="Tools"/><br>&nbsp; | <br><img src="https://skillicons.dev/icons?i=cpp,java,python&perline=3" alt="Languages"/><br>&nbsp; |
+| <br><img src="https://skillicons.dev/icons?i=react,js,html,css,bootstrap&perline=5" alt="Frontend"/><br>&nbsp; | <br><img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,mysql,supabase,firebase&perline=3" alt="Backend"/><br>&nbsp; | <br><img src="https://skillicons.dev/icons?i=git,github,vscode,postman,figma,docker&perline=3" alt="Tools"/><br>&nbsp; | <br><img src="https://skillicons.dev/icons?i=cpp,java,python&perline=3" alt="Languages"/><br>&nbsp; |
 
 </div>
 
@@ -85,12 +68,12 @@
 ## 📊 GitHub Command Center
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=akashkmr07&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&rank_icon=github&bg_color=0d1117&title_color=58a6ff&icon_color=a371f7&text_color=c9d1d9" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akashkmr07&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" alt="Top Languages" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=akashkmr07&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&rank_icon=github" alt="GitHub Stats" height="180" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akashkmr07&layout=compact&langs_count=8&theme=tokyonight&hide_border=true" alt="Top Languages" height="180" />
 </div>
 
 <div align="center" style="margin-top: 10px;">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=akashkmr07&theme=tokyo-night&hide_border=true&area=true&bg_color=0d1117&color=58a6ff&line=58a6ff&point=ffffff" alt="Contribution Graph" width="100%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=akashkmr07&theme=tokyo-night&hide_border=true&area=true" alt="Contribution Graph" width="100%" />
 </div>
 
 <br>
