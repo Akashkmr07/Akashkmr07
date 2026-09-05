@@ -36,6 +36,13 @@ def main():
         print("Invalid number of days.")
         sys.exit(1)
         
+    min_commits_per_day = input("Minimum commits per day? (default 1): ")
+    try:
+        min_commits_per_day = int(min_commits_per_day) if min_commits_per_day.strip() else 1
+    except ValueError:
+        print("Invalid minimum commits.")
+        sys.exit(1)
+        
     max_commits_per_day = input("Maximum commits per day? (default 5): ")
     try:
         max_commits_per_day = int(max_commits_per_day) if max_commits_per_day.strip() else 5
@@ -43,7 +50,11 @@ def main():
         print("Invalid maximum commits.")
         sys.exit(1)
         
-    print(f"\nGenerating up to {max_commits_per_day} commits per day for the last {days} days...")
+    if min_commits_per_day > max_commits_per_day:
+        print("Minimum cannot be greater than maximum.")
+        sys.exit(1)
+        
+    print(f"\nGenerating between {min_commits_per_day} and {max_commits_per_day} commits per day for the last {days} days...")
     
     now = datetime.datetime.now()
     
@@ -73,7 +84,7 @@ def main():
     for i in range(days, -1, -1):
         date = now - datetime.timedelta(days=i)
         
-        num_commits = random.randint(1, max_commits_per_day)
+        num_commits = random.randint(min_commits_per_day, max_commits_per_day)
         
         for j in range(num_commits):
             commit_time = date.replace(
