@@ -56,7 +56,7 @@ def main():
         
     print(f"\nGenerating between {min_commits_per_day} and {max_commits_per_day} commits per day for the last {days} days...")
     
-    now = datetime.datetime.now()
+    now = datetime.datetime.now().astimezone()
     
     commits_made = 0
     
@@ -87,8 +87,13 @@ def main():
         num_commits = random.randint(min_commits_per_day, max_commits_per_day)
         
         for j in range(num_commits):
+            # Prevent generating a time in the future for today
+            max_hour = 23
+            if i == 0:
+                max_hour = min(23, now.hour)
+                
             commit_time = date.replace(
-                hour=random.randint(9, 23), 
+                hour=random.randint(9, max(9, max_hour)), 
                 minute=random.randint(0, 59), 
                 second=random.randint(0, 59)
             )
@@ -107,7 +112,21 @@ def main():
                 'GIT_COMMITTER_NAME': github_name,
                 'GIT_COMMITTER_EMAIL': github_email
             }
-            cmd = f'git commit -m "Retroactive contribution {commit_time.date()}"'
+            
+            commit_messages = [
+                "Update documentation",
+                "Fix minor bug",
+                "Refactor code structure",
+                "Update dependencies",
+                "Improve performance",
+                "Clean up unused variables",
+                "Add error handling",
+                "Tweak UI styles",
+                "Update config files",
+                "Fix typo in comments"
+            ]
+            msg = random.choice(commit_messages)
+            cmd = f'git commit -m "{msg}"'
             run_cmd(cmd, cwd=repo_root, env=env_vars)
             
             commits_made += 1
