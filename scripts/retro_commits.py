@@ -4,8 +4,12 @@ import datetime
 import subprocess
 import random
 
-def run_cmd(cmd, cwd=None):
-    result = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True, text=True)
+def run_cmd(cmd, cwd=None, env=None):
+    # Merge existing environment with new env vars
+    run_env = os.environ.copy()
+    if env:
+        run_env.update(env)
+    result = subprocess.run(cmd, shell=True, cwd=cwd, env=run_env, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"Error running '{cmd}': {result.stderr}")
         sys.exit(1)
@@ -62,9 +66,12 @@ def main():
             run_cmd(f'git add "{dummy_file}"', cwd=repo_root)
             
             date_str = commit_time.strftime("%Y-%m-%dT%H:%M:%S")
-            env = f'GIT_AUTHOR_DATE="{date_str}" GIT_COMMITTER_DATE="{date_str}"'
-            cmd = f'{env} git commit -m "Retroactive contribution {commit_time.date()}"'
-            run_cmd(cmd, cwd=repo_root)
+            env_vars = {
+                'GIT_AUTHOR_DATE': date_str,
+                'GIT_COMMITTER_DATE': date_str
+            }
+            cmd = f'git commit -m "Retroactive contribution {commit_time.date()}"'
+            run_cmd(cmd, cwd=repo_root, env=env_vars)
             
             commits_made += 1
             
