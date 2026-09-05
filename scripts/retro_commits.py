@@ -48,6 +48,28 @@ def main():
     now = datetime.datetime.now()
     
     commits_made = 0
+    
+    # Load .env
+    env_path = os.path.join(repo_root, ".env")
+    github_name = None
+    github_email = None
+    
+    if os.path.exists(env_path):
+        with open(env_path, "r") as f:
+            for line in f:
+                if "=" in line:
+                    key, val = line.strip().split("=", 1)
+                    if key == "GITHUB_NAME": github_name = val
+                    if key == "GITHUB_EMAIL": github_email = val
+                    
+    if not github_name or not github_email:
+        print("Error: GITHUB_NAME or GITHUB_EMAIL not found in .env file.")
+        print("Please create a .env file in the root folder with your details.")
+        print("Example:")
+        print("GITHUB_NAME=akashkmr07")
+        print("GITHUB_EMAIL=akashkmr0707@gmail.com")
+        sys.exit(1)
+        
     for i in range(days, -1, -1):
         date = now - datetime.timedelta(days=i)
         
@@ -68,7 +90,11 @@ def main():
             date_str = commit_time.strftime("%Y-%m-%dT%H:%M:%S")
             env_vars = {
                 'GIT_AUTHOR_DATE': date_str,
-                'GIT_COMMITTER_DATE': date_str
+                'GIT_COMMITTER_DATE': date_str,
+                'GIT_AUTHOR_NAME': github_name,
+                'GIT_AUTHOR_EMAIL': github_email,
+                'GIT_COMMITTER_NAME': github_name,
+                'GIT_COMMITTER_EMAIL': github_email
             }
             cmd = f'git commit -m "Retroactive contribution {commit_time.date()}"'
             run_cmd(cmd, cwd=repo_root, env=env_vars)
