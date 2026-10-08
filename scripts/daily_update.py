@@ -6,26 +6,33 @@ import urllib.request
 import json
 
 def get_quote():
-    try:
-        url = "https://api.quotable.io/random?tags=technology|programming"
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=5) as response:
-            data = json.loads(response.read().decode())
-            return f'"{data["content"]}"\n— *{data["author"]}*'
-    except Exception as e:
-        print(f"Failed to fetch quote from quotable API: {e}. Falling back to default list.")
-        import random
-        quotes = [
-            '"Talk is cheap. Show me the code."\n— *Linus Torvalds*',
-            '"Programs must be written for people to read, and only incidentally for machines to execute."\n— *Harold Abelson*',
-            '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."\n— *Martin Fowler*',
-            '"First, solve the problem. Then, write the code."\n— *John Johnson*',
-            '"Experience is the name everyone gives to their mistakes."\n— *Oscar Wilde*',
-            '"In order to be irreplaceable, one must always be different"\n— *Coco Chanel*',
-            '"Knowledge is power."\n— *Francis Bacon*',
-            '"Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday\'s code."\n— *Dan Salomon*'
-        ]
-        return random.choice(quotes)
+    endpoints = [
+        ("https://zenquotes.io/api/random", lambda d: f'"{d[0]["q"]}"\n— *{d[0]["a"]}*'),
+        ("https://dummyjson.com/quotes/random", lambda d: f'"{d["quote"]}"\n— *{d["author"]}*'),
+        ("https://api.quotable.io/random?tags=technology|programming", lambda d: f'"{d["content"]}"\n— *{d["author"]}*')
+    ]
+    for url, parser in endpoints:
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=5) as response:
+                data = json.loads(response.read().decode())
+                return parser(data)
+        except Exception as e:
+            continue
+            
+    # Fallback quotes
+    import random
+    quotes = [
+        '"Talk is cheap. Show me the code."\n— *Linus Torvalds*',
+        '"Programs must be written for people to read, and only incidentally for machines to execute."\n— *Harold Abelson*',
+        '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."\n— *Martin Fowler*',
+        '"First, solve the problem. Then, write the code."\n— *John Johnson*',
+        '"Experience is the name everyone gives to their mistakes."\n— *Oscar Wilde*',
+        '"In order to be irreplaceable, one must always be different"\n— *Coco Chanel*',
+        '"Knowledge is power."\n— *Francis Bacon*',
+        '"Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday\'s code."\n— *Dan Salomon*'
+    ]
+    return random.choice(quotes)
 
 def main():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

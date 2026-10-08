@@ -78,7 +78,7 @@ def main():
         print("Please create a .env file in the root folder with your details.")
         print("Example:")
         print("GITHUB_NAME=akashkmr07")
-        print("GITHUB_EMAIL=akashkmr0707@gmail.com")
+        print("GITHUB_EMAIL=akashkmr765@gmail.com")
         sys.exit(1)
         
     for i in range(days, -1, -1):
